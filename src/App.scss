@@ -1,0 +1,151 @@
+$black: #000;
+$white: #fff;
+$gray: #ccc;
+$transparent: rgba(0, 0, 0, 0);
+
+body {
+  background: $black;
+  color: $white;
+  letter-spacing: 0.1rem;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.loader-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.header {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background: $black;
+  top: 0;
+  left: 0;
+  padding: 0 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.controls {
+  align-items: center;
+  background: red;
+  display: flex;
+}
+
+.main-wrapper {
+  display: flex;
+  margin-top: 50px;
+}
+
+.genrelist {
+  display: inline;
+  margin: 15px 0;
+  padding: 0;
+
+  li {
+    border: 1px solid $white;
+    border-radius: 3px;
+    padding: 3px 8px;
+    display: inline-block;
+    list-style: none;
+    margin: 5px;
+  }
+}
+
+.castlist {
+  margin: 0;
+  padding: 0;
+
+  li {
+    cursor: zoom-in;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, $gray 0%, $black 100%);
+    border-image-slice: 1;
+    list-style: none;
+    overflow: hidden;
+    position: relative;
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    &::before {
+      border-bottom: $transparent 50px solid;
+      border-left: $transparent 20px solid;
+      border-top: $black 50px solid;
+      border-right: $black 20px solid;
+      content: "";
+      display: block;
+      position: absolute;
+      left: 145px;
+      top: 0;
+      transition: 0.3s ease-in-out;
+    }
+  }
+  figure {
+    align-items: center;
+    display: flex;
+    margin: 0;
+    height: 100px;
+  }
+  img {
+    width: 185px;
+  }
+  figcaption {
+    margin-left: 20px;
+  }
+}
+
+.imagepanel {
+  height: calc(100vh - 50px);
+  overflow: hidden;
+  width: 50%;
+  position: relative;
+  img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    width: 100%;
+  }
+}
+.contentpanel {
+  box-sizing: border-box;
+  height: calc(100vh - 50px);
+  overflow: auto;
+  padding: 20px 20px 0 0;
+  width: 50%;
+  header {
+    padding-left: 20px;
+  }
+  main {
+    padding-left: 20px;
+    div {
+      line-height: 1.8rem;
+    }
+  }
+  footer {
+    h2 {
+      padding-left: 20px;
+    }
+  }
+}
