@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.scss";
 import { MovieProvider } from "./components/MovieContext";
-import ImagePanel from "./imagePanel/index";
-import ContentPanel from "./contentPanel/index";
+import ImagePanel from "./components/imagePanel/index";
+import ContentPanel from "./components/contentPanel/index";
 import HeaderBar from "./components/header/index";
 
 class App extends Component {
