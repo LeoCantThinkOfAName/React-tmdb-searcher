@@ -1,5 +1,5 @@
 {
-  "name": "Théâtre",
+  "name": "Theatre",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,8 @@
     "react-i18next": "^8.4.0",
     "react-moment": "^0.8.4",
     "react-scripts": "2.1.1",
-    "react-spinners": "^0.4.7"
+    "react-spinners": "^0.4.7",
+    "react-transition-group": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
