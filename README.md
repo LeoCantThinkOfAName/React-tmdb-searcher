@@ -4,6 +4,8 @@
 
 ---
 
+![react tmdb searcher demo img](react-tmdb-searcher.gif "react tmdb searcher demo img")
+
 ## What's the purpose?
 
 Errr...  
