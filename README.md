@@ -26,7 +26,7 @@ And benefited from TMDB api, user can search the movie from real-world database 
 - ✅Make a info area.
 - ✅Fetch data from TMDB api and put them into poster and info area using context api.
 - ✅Implement i18n functionality, which can change the interface's and data's language.
-- ❎Make a searchbox that have fuzzy match function, and display a list that user can choose from.
+- ✅Make a searchbox that have fuzzy match function, and display a list that user can choose from.
 
 ## Ideas...
 
