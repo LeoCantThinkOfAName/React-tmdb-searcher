@@ -14,12 +14,33 @@ export class MovieProvider extends PureComponent {
       movie: {},
       lang: "zh-TW",
       casts: [],
+      searchTerm: "",
+      searchResults: [],
+      timeout: null,
       onLangSelect: lang => {
         this.setState({
           lang,
         });
         this.fetchData(this.state.movieId);
         i18n.changeLanguage(lang);
+      },
+      onInputChange: searchTerm => {
+        this.setState({
+          searchTerm,
+        });
+
+        // set a tiny throttle to stop the crazy requests
+        clearTimeout(this.state.timeout);
+        this.state.timeout = setTimeout(() => {
+          this.searchMovie(searchTerm);
+        }, 500);
+      },
+      onSearchResultClicked: movieId => {
+        this.setState({
+          searchResults: [],
+          searchTerm: "",
+        });
+        this.fetchData(movieId);
       },
     };
 
@@ -51,21 +72,45 @@ export class MovieProvider extends PureComponent {
             });
           });
 
-          if (!movieId) {
-            await Axios.get(
-              `${process.env.REACT_APP_API}/movie/${
-                res.data.results[randomNum].id
-              }/credits?api_key=${process.env.REACT_APP_KEY}`
-            )
-              .then(res => {
-                this.setState({
-                  casts: res.data.cast,
-                });
-              })
-              .catch(err => {
-                console.log(err);
+          // get casts (if movieId is not provided, use random id just generated)
+          await Axios.get(
+            `${process.env.REACT_APP_API}/movie/${
+              movieId ? movieId : res.data.results[randomNum].id
+            }/credits?api_key=${process.env.REACT_APP_KEY}`
+          )
+            .then(res => {
+              this.setState({
+                casts: res.data.cast,
               });
-          }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+
+    this.searchMovie = searchTerm => {
+      // if the search term is empty, don't execute.
+      if (searchTerm.length === 0) {
+        this.setState({
+          searchResults: [],
+        });
+        return;
+      }
+
+      Axios.get(
+        `${process.env.REACT_APP_API}/search/movie?api_key=${
+          process.env.REACT_APP_KEY
+        }&language=${this.state.lang}&page=1&query=${this.state.searchTerm}`
+      )
+        .then(res => {
+          this.setState({
+            searchResults: res.data.results.slice(0, 5),
+            timeout: null,
+          });
         })
         .catch(err => {
           console.log(err);
