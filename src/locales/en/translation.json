@@ -3,5 +3,8 @@
   "Overview": "Overview",
   "Cast": "Cast",
   "Not Available": "Not Available",
-  "Genres": "Genres"
+  "Genres": "Genres",
+  "enterSearchTerm": "Enter the Title...",
+  "zh-TW": "中文",
+  "en-US": "English"
 }

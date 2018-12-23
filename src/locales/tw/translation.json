@@ -3,5 +3,8 @@
   "Overview": "簡介",
   "Cast": "演員列表",
   "Not Available": "暫無資料",
-  "Genres": "電影分類"
+  "Genres": "電影分類",
+  "enterSearchTerm": "輸入標題...",
+  "zh-TW": "中文",
+  "en-US": "English"
 }
