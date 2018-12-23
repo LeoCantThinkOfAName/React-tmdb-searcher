@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-tmdb-searcher/precache-manifest.c8a3afdba70cf15ee851bdad18e096fa.js"
+  "/React-tmdb-searcher/precache-manifest.e95d175b581a6e307fa79b07609bbd99.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/react-tmdb-searcher/index.html", {
+workbox.routing.registerNavigationRoute("/React-tmdb-searcher/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
